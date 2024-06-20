@@ -1,0 +1,94 @@
+footer{
+    background-color: #0D2D61;
+    color:white;
+}
+
+.hero {
+    background-size: auto;
+    color: black;
+}
+
+.poetsen-one-regular {
+    font-family: "Poetsen One", sans-serif;
+}
+
+#home {
+    color:white;
+}
+
+h1 {
+    border: #0D2D61 solid 5px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+h2 {
+    border: #0D2D61 solid 5px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+#nike {
+    padding: 10px;
+    border: #0D2D61 solid 5px;
+    border-radius: 40px;
+}
+
+.ropanike {
+    border: #0D2D61 dotted 5px;
+    border-radius: 40px;
+    margin: 10px;
+    text-align: center;
+}
+
+.ropanike img {
+    height: 28%;
+    width: 28%;
+    border-radius: 40px;
+}
+
+#indumentaria {
+    padding: 10px;
+    border: #0D2D61 solid 5px;
+    border-radius: 40px;
+}
+
+#registro {
+    padding: 10px;
+    border: #0D2D61 solid 5px;
+    border-radius: 40px;
+    margin: 10px;
+}
+
+.indumentaria {
+    border: #0D2D61 dotted 5px;
+    border-radius: 40px;
+    margin: 10px;
+    text-align: center;
+}
+
+.indumentaria img {
+    height: 28%;
+    width: 28%;
+    border-radius: 40px;
+}
+
+#historia {
+    border: #0D2D61 solid 5px;
+    border-radius: 40px;
+    margin: 10px;
+}
+
+#ubicacion {
+    border: #0D2D61 solid 5px;
+    border-radius: 40px;
+    margin: 10px;
+}
+
+iframe{
+    border-radius: 40px;
+}
+
+.d-flex {
+    margin: 15px;
+}
