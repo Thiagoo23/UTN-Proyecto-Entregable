@@ -3,9 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var session = require('express-session')
+var session = require('express-session');
 
 require('dotenv').config();
+
+var pool = require('./models/bd');
 
 // Index
 var indexRouter = require('./routes/index');
@@ -65,6 +67,20 @@ app.use('/nike', nikeRouter);
 app.use('/iniciosesion', sesionRouter);
 app.use('/registro', registroRouter);
 app.use('/micuenta', cuentaRouter);
+
+var obj = {
+    nombre: 'Thiago',
+    apellido: 'Borro',
+    email: 'borrothiago@gmail.com',
+    contraseña: 'abc123',
+    telefono: 12345678,
+    nsocio: 13411,
+}
+
+pool.query('insert into cuentas set ?', [obj]).then(function
+(resultados) {
+    console.log(resultados);
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
