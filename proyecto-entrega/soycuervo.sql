@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version 5.5.5-10.4.28-MariaDB)
-# Date: 2024-07-16 19:48:33
+# Date: 2024-07-22 18:21:52
 # Generator: MySQL-Front 6.1  (Build 1.26)
 
 
@@ -15,7 +15,7 @@ CREATE TABLE `cuentas` (
   `email` varchar(100) NOT NULL,
   `contraseña` varchar(20) NOT NULL,
   `telefono` int(20) NOT NULL,
-  `n°socio` int(15) NOT NULL,
+  `n_socio` int(15) NOT NULL,
   PRIMARY KEY (`id_emp`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
