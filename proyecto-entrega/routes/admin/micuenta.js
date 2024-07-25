@@ -3,7 +3,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('micuenta');
+  res.render('admin/micuenta', {
+      layout:'admin/layout',
+      usuario: req.session.nombre
+  });
 });
 
 module.exports = router;

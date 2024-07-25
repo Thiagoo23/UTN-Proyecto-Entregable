@@ -6,22 +6,22 @@ var logger = require('morgan');
 var session = require('express-session');
 
 require('dotenv').config();
+var session = require('express-session');
 
 var pool = require('./models/bd');
 
 // Index
 var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
 // Indumentaria
 var indumentariaRouter = require('./routes/indumentaria');
 // Nike
 var nikeRouter = require('./routes/nike');
-// Iniciar Sesion
-var sesionRouter = require('./routes/iniciosesion');
+// Login
+var loginRouter = require('./routes/admin/login.js');
 // Registro
 var registroRouter = require('./routes/registro');
 // Mi Cuenta
-var cuentaRouter = require('./routes/micuenta');
+var cuentaRouter = require('./routes/admin/micuenta.js');
 
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -39,48 +39,26 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.get('/', function (req, res) {
-    var conocido = Boolean(req.session.nombre);
-
-    res.render('micuenta', {
-        conocido: conocido,
-        nombre: req.session.nombre
-    });
-
-});
-
-app.post('/ingresar', function (req, res) {
-    if (req.body.nombre) {
-        req.session.nombre = req.body.nombre;
+secured = async (req, res, next) => {
+    try {
+        console.log(req.session-id_usuario);
+        if (req.session.id_usuario) {
+            next();
+        } else {
+            res.redirect('/admin/login')
+        }
+    } catch (error) {
+        console.log(error);
     }
-    res.redirect('/micuenta')
-});
-
-app.get('/salir', function (req, res) {
-    req.session.destroy();
-    res.redirect('/micuenta')
-});
+}
 
 app.use('/', indexRouter);
 app.use('/indumentaria', indumentariaRouter);
 app.use('/nike', nikeRouter);
-app.use('/iniciosesion', sesionRouter);
+app.use('/admin/login', loginRouter);
 app.use('/registro', registroRouter);
-app.use('/micuenta', cuentaRouter);
+app.use('/admin/micuenta', secured, cuentaRouter);
 
-var obj = {
-    nombre: 'Thiago',
-    apellido: 'Borro',
-    email: 'borrothiago@gmail.com',
-    contraseña: 'abc123',
-    telefono: 12345678,
-    nsocio: 13411,
-}
-
-pool.query('insert into cuentas set ?', [obj]).then(function
-(resultados) {
-    console.log(resultados);
-});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
