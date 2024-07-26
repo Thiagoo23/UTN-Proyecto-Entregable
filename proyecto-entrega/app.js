@@ -17,11 +17,11 @@ var indumentariaRouter = require('./routes/indumentaria');
 // Nike
 var nikeRouter = require('./routes/nike');
 // Login
-var loginRouter = require('./routes/admin/login.js');
+var loginRouter = require('./routes/admin/login');
 // Registro
-var registroRouter = require('./routes/registro');
+var registroRouter = require('./routes/admin/registro');
 // Mi Cuenta
-var cuentaRouter = require('./routes/admin/micuenta.js');
+var cuentaRouter = require('./routes/admin/micuenta');
 
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -56,7 +56,7 @@ app.use('/', indexRouter);
 app.use('/indumentaria', indumentariaRouter);
 app.use('/nike', nikeRouter);
 app.use('/admin/login', loginRouter);
-app.use('/registro', registroRouter);
+app.use('/admin/registro', registroRouter);
 app.use('/admin/micuenta', secured, cuentaRouter);
 
 
