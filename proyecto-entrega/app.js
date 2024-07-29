@@ -18,10 +18,8 @@ var indumentariaRouter = require('./routes/indumentaria');
 var nikeRouter = require('./routes/nike');
 // Login
 var loginRouter = require('./routes/admin/login');
-// Registro
-var registroRouter = require('./routes/admin/registro');
-// Mi Cuenta
-var cuentaRouter = require('./routes/admin/micuenta');
+// Cuenta
+var cuentaRouter = require('./routes/admin/cuenta');
 
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -56,8 +54,7 @@ app.use('/', indexRouter);
 app.use('/indumentaria', indumentariaRouter);
 app.use('/nike', nikeRouter);
 app.use('/admin/login', loginRouter);
-app.use('/admin/registro', registroRouter);
-app.use('/admin/micuenta', secured, cuentaRouter);
+app.use('/admin/cuenta', secured, cuentaRouter);
 
 
 // catch 404 and forward to error handler
