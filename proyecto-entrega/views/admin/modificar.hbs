@@ -1,0 +1,33 @@
+<div class="container" style="margin:100px auto;">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Modificar productos</h4>
+            <form action="/admin/cuenta/modificar" method="post">
+                <input type="hidden" value="{{cuenta.id}}" name="id">
+                <div class="form-group">
+                    <label for="">Titulo</label>
+                    <input type="text" class="form-control" name="titulo" value="{{cuenta.titulo}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Descripción</label>
+                    <textarea name="descripcion" class="foorm-control" name="descripcion">{{cuenta.descripcion}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Precio</label>
+                    <input type="number" class="form-control" name="precio" value="{{cuenta.precio}}">
+                </div>
+
+                <button type="submit" class="btnbtn-primary">Guardar</button>
+            </form>
+
+            {{#if error}}
+                <p>{{message}}</p>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

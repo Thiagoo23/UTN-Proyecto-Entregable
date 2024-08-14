@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer')
-var cuenta = require('../models/cuentaModel');
+var cuentaModel = require('../models/cuentaModel');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
