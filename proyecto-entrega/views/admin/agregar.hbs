@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-6 offset-3">
             <h4>Agregar productos</h4>
-            <form action="/admin/cuenta/agregar" method="post">
+            <form action="/admin/cuenta/agregar" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Titulo" name="titulo">
             </div>
@@ -13,6 +13,10 @@
 
             <div class="form-group">
                 <textarea type="number" class="form-control" placeholder="Precio" name="precio"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Imagen: <input type="file" class="form-control" name="imagen" id="imagen" /></label>
             </div>
 
             <button type="submit" class="btnbtn-primary">Guardar</button>

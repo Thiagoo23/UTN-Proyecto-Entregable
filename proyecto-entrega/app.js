@@ -7,6 +7,7 @@ var session = require('express-session');
 
 require('dotenv').config();
 var session = require('express-session');
+var fileUpload = require('express-fileupload');
 
 var pool = require('./models/bd');
 
@@ -49,6 +50,11 @@ secured = async (req, res, next) => {
         console.log(error);
     }
 }
+
+app.use(fileUpload({
+    useTempsFiles: true,
+    tempFileDir: '/tmp/'
+}));
 
 app.use('/', indexRouter);
 app.use('/indumentaria', indumentariaRouter);
