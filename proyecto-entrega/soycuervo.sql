@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version 5.5.5-10.4.32-MariaDB)
-# Date: 2024-08-20 19:34:40
+# Date: 2024-08-20 19:47:00
 # Generator: MySQL-Front 6.1  (Build 1.26)
 
 
@@ -15,12 +15,13 @@ CREATE TABLE `cuenta` (
   `precio` varchar(150) NOT NULL,
   `img_id` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 #
 # Data for table "cuenta"
 #
 
+INSERT INTO `cuenta` VALUES (2,0,'123','100','');
 
 #
 # Structure for table "usuarios"

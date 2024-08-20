@@ -82,7 +82,7 @@ router.post('/agregar', async (req, res, next) => {
       res.render('admin/agregar', {
         layout: 'admin/layout',
         error: true,
-        message: 'No se cargo el nuevo objeto'
+        message: 'No se cargo la nueva publicación'
     })
   }
 })
@@ -127,7 +127,7 @@ router.post('/modificar', async (req, res, next) => {
     res.render('/admin/modificar', {
       layout: 'admin/layout',
       error: true,
-      message: 'No se modifico la cuenta'
+      message: 'No se modifico la publicación'
     })
   }
 })
