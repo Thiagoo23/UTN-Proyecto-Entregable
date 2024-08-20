@@ -10,7 +10,7 @@ const destroy = require
 router.get('/', async function(req, res, next) {
   var cuenta = await cuentaModel.getCuenta();
 
-  cuenta = cuenta.splice(o, 5);
+  cuenta = cuenta.splice(0, 5);
   cuenta = cuenta.map(cuenta => {
     if(cuenta.img_id) {
       const imagen = cloudinary.image(cuenta.img_id, {
