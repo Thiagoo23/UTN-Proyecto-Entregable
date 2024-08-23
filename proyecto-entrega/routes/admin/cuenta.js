@@ -4,7 +4,7 @@ var cuentaModel = require('../../models/cuentaModel');
 var util = require('util');
 var cloudinary = require('cloudinary').v2;
 const uploader = util.promisify(cloudinary.uploader.upload);
-const destroy = require
+const destroy = util.promisify(cloudinary.uploader.destroy);
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
@@ -14,7 +14,8 @@ router.get('/', async function(req, res, next) {
   cuenta = cuenta.map(cuenta => {
     if(cuenta.img_id) {
       const imagen = cloudinary.image(cuenta.img_id, {
-        width: 460,
+        width: 80,
+        height: 80,
         crop: "fill"
       });
       return {
@@ -41,7 +42,7 @@ router.get('/eliminar/:id', async (req, res, next) => {
 
   let cuenta = await cuentaModel.getCuentaById(id);
   if (cuenta.img_id) {
-    await (destroy(novedad.img_id));
+    await (destroy(cuenta.img_id));
   }
 
   await cuentaModel.deleteCuentaById(id);
@@ -118,7 +119,8 @@ router.post('/modificar', async (req, res, next) => {
     var obj = {
       titulo: req.body.titulo,
       descripcion: req.body.descripcion,
-      precio: req.body.precio
+      precio: req.body.precio,
+      img_id
     }
 
     await cuentaModel.modificarCuentaById(obj, req.body.id);

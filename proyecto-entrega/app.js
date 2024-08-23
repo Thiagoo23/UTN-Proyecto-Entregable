@@ -52,7 +52,7 @@ secured = async (req, res, next) => {
 }
 
 app.use(fileUpload({
-    useTempsFiles: true,
+    useTempFiles: true,
     tempFileDir: '/tmp/'
 }));
 

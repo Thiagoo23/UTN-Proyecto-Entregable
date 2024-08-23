@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version 5.5.5-10.4.32-MariaDB)
-# Date: 2024-08-20 19:47:00
+# Date: 2024-08-23 20:07:42
 # Generator: MySQL-Front 6.1  (Build 1.26)
 
 
@@ -10,18 +10,18 @@
 DROP TABLE IF EXISTS `cuenta`;
 CREATE TABLE `cuenta` (
   `id` int(250) NOT NULL AUTO_INCREMENT,
-  `titulo` int(11) NOT NULL,
+  `titulo` varchar(150) NOT NULL,
   `descripcion` text DEFAULT NULL,
   `precio` varchar(150) NOT NULL,
   `img_id` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 #
 # Data for table "cuenta"
 #
 
-INSERT INTO `cuenta` VALUES (2,0,'123','100','');
+INSERT INTO `cuenta` VALUES (4,'BUZO CASLA RETRO ADIDAS','Sin capucha.','25.000','vxztxe1wvijks572zma3');
 
 #
 # Structure for table "usuarios"
