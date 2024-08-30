@@ -17,6 +17,8 @@ var indexRouter = require('./routes/index');
 var indumentariaRouter = require('./routes/indumentaria');
 // Nike
 var nikeRouter = require('./routes/nike');
+// Contacto
+var contactoRouter = require('./routes/contacto');
 // Login
 var loginRouter = require('./routes/admin/login');
 // Cuenta
@@ -59,6 +61,7 @@ app.use(fileUpload({
 app.use('/', indexRouter);
 app.use('/indumentaria', indumentariaRouter);
 app.use('/nike', nikeRouter);
+app.use('/contacto', contactoRouter);
 app.use('/admin/login', loginRouter);
 app.use('/admin/cuenta', secured, cuentaRouter);
 
